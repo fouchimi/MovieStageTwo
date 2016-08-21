@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Movies</string>
+
+    <string name="popular_action">Popular Movies</string>
+    <string name="top_rated_action">Top Rated Movies</string>
+    <string name="settings_action">Settings</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ok">Ok</string>
+</resources>

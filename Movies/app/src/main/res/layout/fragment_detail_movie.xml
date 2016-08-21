@@ -1,0 +1,97 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ousmane.movies.DetailMovieFragment">
+
+
+    <TextView
+        android:id="@+id/detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@android:color/holo_blue_bright"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:paddingTop="20dp"
+        android:gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <ImageView
+            android:id="@+id/detail_thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitStart"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detail_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Year"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/detail_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rating"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/detail_vote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vote"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/detail_synopsis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/trailer_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/review_listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout>
+
+
+</LinearLayout>
