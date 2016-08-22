@@ -34,10 +34,13 @@ public class TrailerAdapter extends ArrayAdapter<Trailer> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        /*convertView = inflater.inflate(R.layout.trailer_item, parent, false);
-        TextView mTextView = (TextView) convertView.findViewById(R.id.trailer_name);
+        convertView = inflater.inflate(R.layout.trailer, parent, false);
+        TextView mTrailerName = (TextView) convertView.findViewById(R.id.trailer_name);
+        TextView mTrailerId = (TextView) convertView.findViewById(R.id.trailer_id);
         Trailer trailer = movieList.get(position);
-        mTextView.setText(trailer.getName()); */
+        int index = position + 1;
+        mTrailerName.setText(trailer.getName());
+        mTrailerId.setText("Trailer: " + index);
         return convertView;
     }
 }

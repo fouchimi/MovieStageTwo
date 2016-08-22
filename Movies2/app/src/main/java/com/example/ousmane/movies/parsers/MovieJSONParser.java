@@ -1,5 +1,7 @@
 package com.example.ousmane.movies.parsers;
 
+import com.example.ousmane.movies.entities.Movie;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

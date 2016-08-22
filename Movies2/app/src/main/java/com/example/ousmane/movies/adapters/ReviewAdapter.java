@@ -35,10 +35,10 @@ public class ReviewAdapter extends ArrayAdapter<Review> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        /*convertView = inflater.inflate(R.layout.review_item, parent, false);
+        convertView = inflater.inflate(R.layout.review, parent, false);
         TextView mReviewContent = (TextView) convertView.findViewById(R.id.review_content);
         Review review = reviewList.get(position);
-        mReviewContent.setText(review.getContent());*/
+        mReviewContent.setText(review.getContent());
         return convertView;
     }
 }

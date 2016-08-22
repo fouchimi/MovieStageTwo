@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import com.example.ousmane.movies.R;
 import com.example.ousmane.movies.entities.Movie;
-//import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -35,12 +35,12 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        /*convertView = inflater.inflate(R.layout.image_item, parent, false);
+        convertView = inflater.inflate(R.layout.movie, parent, false);
         ImageView mImageView = (ImageView) convertView.findViewById(R.id.image_thumbnail);
         Movie movie = movieList.get(position);
         Picasso.with(mContext)
                 .load(movie.getImage())
-                .into(mImageView); */
+                .into(mImageView);
         return convertView;
     }
 }

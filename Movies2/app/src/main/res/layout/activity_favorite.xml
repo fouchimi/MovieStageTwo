@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.ousmane.movies.DetailActivity">
+    tools:context="com.example.ousmane.movies.FavoriteActivity">
 
-    <include layout="@layout/content_detail" />
+    <include layout="@layout/content_favorite" />
+
 
 </android.support.design.widget.CoordinatorLayout>
