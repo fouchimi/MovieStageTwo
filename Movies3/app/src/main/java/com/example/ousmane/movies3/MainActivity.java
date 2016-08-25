@@ -16,6 +16,8 @@ import com.example.ousmane.movies3.entities.Movie;
 
 public class MainActivity extends AppCompatActivity implements MovieListFragment.Callbacks {
 
+    private boolean isTwoPane = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements MovieListFragment
 
         if(!isOnline()) {
             alertDialog();
+        }
+        if(findViewById(R.id.movie_detail_container) != null) {
+            isTwoPane = true;
         }
     }
 
@@ -84,9 +89,18 @@ public class MainActivity extends AppCompatActivity implements MovieListFragment
     public void onItemSelected(Movie movie) {
         Bundle bundle = new Bundle();
         bundle.putParcelable(Constants.MOVIE_KEY.getValue(), movie);
-        Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtras(bundle);
-        startActivity(intent);
 
+        if(isTwoPane) {
+            DetailFragment detailFragment = new DetailFragment();
+            bundle.putBoolean(Constants.LARGE.getValue(), true);
+            detailFragment.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.movie_detail_container, detailFragment)
+                    .commit();
+        }else {
+            Intent intent = new Intent(this, DetailActivity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
     }
 }

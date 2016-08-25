@@ -1,47 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_gravity="center"
+    android:layout_margin="4dp"
     tools:context="com.example.ousmane.movies3.FavoriteActivity"
     tools:showIn="@layout/content_favorite">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/favorite_thumbnail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/favorite_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/favorite_thumbnail"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:scaleType="fitStart"
+                android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/favorite_year"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/favorite_rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/favorite_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/text_padding"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/favorite_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/text_padding"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/favorite_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/text_padding"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/favorite_desc"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:padding="@dimen/text_padding"/>
 
         </LinearLayout>
 

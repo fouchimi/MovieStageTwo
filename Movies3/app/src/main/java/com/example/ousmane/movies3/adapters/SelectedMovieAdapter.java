@@ -3,6 +3,7 @@ package com.example.ousmane.movies3.adapters;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,10 +52,13 @@ public class SelectedMovieAdapter extends RecyclerView.Adapter<SelectedMovieAdap
 
     @Override
     public void onBindViewHolder(SelectedMovieAdapter.SelectedMovieViewHolder holder, int position) {
-        holder.detail_title.setText(mMovie.getTitle());
-        holder.detail_year.setText("Year: " + getYear(mMovie.getDate()));
-        holder.detail_rating.setText("Rating: " + mMovie.getRating());
-        holder.detail_synopsis.setText("Desc: " + stripDescription(mMovie.getSynopsis()));
+        holder.detail_title.setText(cleanTitle(mMovie.getTitle()));
+        String formattedDate = "<b><i>Year: </i></b>" + getYear(mMovie.getDate());
+        holder.detail_year.setText(Html.fromHtml(formattedDate));
+        String formattedRating = "<b><i>Rating: </i></b>" + mMovie.getRating();
+        holder.detail_rating.setText(Html.fromHtml(formattedRating));
+        String formattedSynopsis = "<b><i>Synopsis: </i></b>" + stripDescription(mMovie.getSynopsis());
+        holder.detail_synopsis.setText(Html.fromHtml(formattedSynopsis));
         Picasso.with(mContext)
                 .load(mMovie.getImage())
                 .into(holder.detail_thumbnail);
@@ -63,6 +67,16 @@ public class SelectedMovieAdapter extends RecyclerView.Adapter<SelectedMovieAdap
     @Override
     public int getItemCount() {
         return 1;
+    }
+
+    private String cleanTitle(String title) {
+        char ch = ':';
+        String newTitle = "";
+        if(title.indexOf(ch) > 0) {
+            newTitle = title.split(":")[0];
+            return newTitle;
+        }
+        return title;
     }
 
     private String getYear(String date) {

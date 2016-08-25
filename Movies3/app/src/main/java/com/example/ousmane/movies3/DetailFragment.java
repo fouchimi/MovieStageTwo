@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import su.j2e.rvjoiner.JoinableAdapter;
+import su.j2e.rvjoiner.JoinableLayout;
 import su.j2e.rvjoiner.RvJoiner;
 
 
@@ -52,7 +53,7 @@ public class DetailFragment extends Fragment {
 
     // Adapters definition
     private SelectedMovieAdapter mSelectedMovieAdapter;
-    private TrailerAdapter mTraierAdapter;
+    private TrailerAdapter mTrailerAdapter;
     private ReviewAdapter mReviewAdapter;
     private Callbacks activity;
 
@@ -62,9 +63,13 @@ public class DetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
 
         Bundle bundle = getArguments();
+        if(bundle.containsKey(Constants.LARGE.getValue())) {
+            setHasOptionsMenu(false);
+        }else {
+            setHasOptionsMenu(true);
+        }
         if(bundle != null && bundle.containsKey(Constants.MOVIE_KEY.getValue())) {
             mMovie = bundle.getParcelable(Constants.MOVIE_KEY.getValue());
         }else if(savedInstanceState != null) {
@@ -269,11 +274,13 @@ public class DetailFragment extends Fragment {
                 rvJoiner = new RvJoiner();
 
                 mSelectedMovieAdapter = new SelectedMovieAdapter(getActivity(), movie);
-                mTraierAdapter = new TrailerAdapter(getActivity(), movie.getTrailerList());
+                mTrailerAdapter = new TrailerAdapter(getActivity(), movie.getTrailerList());
                 mReviewAdapter = new ReviewAdapter(movie.getReviewList());
 
                 rvJoiner.add(new JoinableAdapter(mSelectedMovieAdapter));
-                rvJoiner.add(new JoinableAdapter(mTraierAdapter));
+                rvJoiner.add(new JoinableLayout(R.layout.trailer_header));
+                rvJoiner.add(new JoinableAdapter(mTrailerAdapter));
+                rvJoiner.add(new JoinableLayout(R.layout.review_header));
                 rvJoiner.add(new JoinableAdapter(mReviewAdapter));
 
                 //set join adapter to your RecyclerView

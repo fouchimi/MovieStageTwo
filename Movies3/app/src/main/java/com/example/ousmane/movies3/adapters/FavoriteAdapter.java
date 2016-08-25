@@ -2,6 +2,8 @@ package com.example.ousmane.movies3.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
  * Created by ousmane on 8/24/16.
  */
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder> {
+    private static final String LOG_TAG = FavoriteAdapter.class.getSimpleName();
 
     private ArrayList<Movie> mMovies;
     private Context mContext;
@@ -51,13 +54,32 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
 
     @Override
     public void onBindViewHolder(FavoriteAdapter.FavoriteViewHolder holder, int position) {
-        holder.favorite_title.setText(mMovies.get(position).getTitle());
-        holder.favorite_rating.setText("Rating: " + mMovies.get(position).getRating());
-        holder.favorite_year.setText("Year: " + mMovies.get(position).getDate());
-        holder.favorite_desc.setText(mMovies.get(position).getSynopsis());
+        String formattedTitle = "<b><i>Title: </i></b>" + cleanTitle(mMovies.get(position).getTitle());
+        holder.favorite_title.setText(Html.fromHtml(formattedTitle));
+        String formattedRating = "<b><i>Rating: </i></b>" + mMovies.get(position).getRating();
+        holder.favorite_rating.setText(Html.fromHtml(formattedRating));
+        String formattedYear = "<b><i>Year: </i></b>" + getYear(mMovies.get(position).getDate());
+        holder.favorite_year.setText(Html.fromHtml(formattedYear));
+        String formattedSynopsis = "<b><i>Synopsis: </i></b>" + mMovies.get(position).getSynopsis();
+        holder.favorite_desc.setText(Html.fromHtml(formattedSynopsis));
+        Log.d(LOG_TAG, mMovies.get(position).getTitle());
         Picasso.with(mContext)
                 .load(mMovies.get(position).getImage())
                 .into(holder.favorite_thumbnail);
+    }
+
+    private String cleanTitle(String title) {
+        char ch = ':';
+        String newTitle = "";
+        if(title.indexOf(ch) > 0) {
+            newTitle = title.split(":")[0];
+            return newTitle;
+        }
+        return title;
+    }
+
+    private String getYear(String date) {
+        return date.split("-")[0];
     }
 
     @Override
