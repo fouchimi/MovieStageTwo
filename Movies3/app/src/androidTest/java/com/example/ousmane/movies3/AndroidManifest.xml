@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ousmane.movies">
+    package="com.example.ousmane.movies3">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    
+
+    <!--suppress AndroidDomInspection -->
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.example.ousmane.movies3" />
 
     <application
         android:allowBackup="true"
@@ -27,19 +31,9 @@
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".FavoriteActivity"
-            android:label="@string/title_activity_favorite"
-            android:parentActivityName=".DetailActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".DetailActivity" />
-        </activity>
+                android:value=".MainActivity" /></activity>
         <provider
-            android:authorities="com.example.ousmane.movies"
+            android:authorities="com.example.ousmane.movies3"
             android:name=".data.MovieProvider">
         </provider>
     </application>

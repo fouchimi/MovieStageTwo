@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:movies="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/popular_ation"
+        android:title="@string/popular_action"
+        movies:showAsAction="never" />
+
+    <item android:id="@+id/top_rated_ation"
+        android:title="@string/top_rated_action"
+        movies:showAsAction="never" />
+
+    <item android:id="@+id/settings_ation"
+        android:title="@string/settings_action"
+        movies:showAsAction="never" />
+</menu>

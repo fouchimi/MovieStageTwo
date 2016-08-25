@@ -39,7 +39,7 @@ public class DetailActivity extends AppCompatActivity {
                     .add(R.id.movie_detail_container, fragment)
                     .commit();
 
-            TrailerFragment trailerFragment = new TrailerFragment();
+            /* TrailerFragment trailerFragment = new TrailerFragment();
             trailerFragment.setArguments(getIntent().getExtras());
 
             getSupportFragmentManager().beginTransaction()
@@ -51,7 +51,7 @@ public class DetailActivity extends AppCompatActivity {
 
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.review_container, reviewFragment)
-                    .commit();
+                    .commit(); */
         }
 
     }
