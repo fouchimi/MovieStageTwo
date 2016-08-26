@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class FavoriteActivity extends AppCompatActivity {
     private static final String LOG_TAG = FavoriteActivity.class.getSimpleName();
+
     private ArrayList<Movie> mMovieArrayList;
     RecyclerView rv;
     LinearLayoutManager llm;

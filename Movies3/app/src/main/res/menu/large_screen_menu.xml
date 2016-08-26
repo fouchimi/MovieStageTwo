@@ -10,4 +10,11 @@
         android:title="@string/top_rated_action"
         movies:showAsAction="never" />
 
+    <item android:id="@+id/favorite_option"
+        android:title="@string/favorite_option"
+        movies:showAsAction="never"  />
+
+    <item android:id="@+id/favorite_list_option_option"
+        android:title="@string/favorite_list_option"
+        movies:showAsAction="never"  />
 </menu>

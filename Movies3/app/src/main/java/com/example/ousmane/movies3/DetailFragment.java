@@ -63,13 +63,9 @@ public class DetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
 
         Bundle bundle = getArguments();
-        if(bundle.containsKey(Constants.LARGE.getValue())) {
-            setHasOptionsMenu(false);
-        }else {
-            setHasOptionsMenu(true);
-        }
         if(bundle != null && bundle.containsKey(Constants.MOVIE_KEY.getValue())) {
             mMovie = bundle.getParcelable(Constants.MOVIE_KEY.getValue());
         }else if(savedInstanceState != null) {
