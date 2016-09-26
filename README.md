@@ -1,2 +1,9 @@
 # MovieStageTwo
-This application is for Movie Stage two of my Nanodegree course which is an extension of Stage one. It supports design for both phone and tablets devices. In order to run this project successfully you will need to get yourself an API Key from www.themoviedb.org website and place it in its placeholder in Constants.java file.
+MovieStage stage two is an extension of <a href="https://github.com/fouchimi/MovieStageOne">MovieStageOne</a> which supports both design for phone and tablets devices. In order to get this app up and running you will need to provide it with an API key from www.themoviedb.org website and substitute the valute of your API key in Constants.java file located in the entities directory. 
+
+<h2>Installation</h2>
+On Linux and Mac OS, you can open the project on Android Studio and run ./gradlew assembleDebug and adb -d install app/{path-to-your-apk} which is often app/build/outputs/apk/{apk_file}.
+
+On Windows, you can run this command instead gradle.bat assembleDebug and adb -d install app/{path-to-your-apk}
+
+Alternatively you can simply click on the run button of the IDE and those steps will be ran automatically and load the application on your mobile or virtual device.
